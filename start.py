@@ -65,7 +65,7 @@ class Core:
         for file in os.listdir("./modules"):
             if file.endswith(".py"):
                 module_list.extend([f"{file}"[:-3]])
-        await ctx.send("\n".join(module_list))
+        await ctx.send("**" + "\n".join(module_list) + "**")
 
 bot = commands.AutoShardedBot(command_prefix=prefix,description=description)
 
