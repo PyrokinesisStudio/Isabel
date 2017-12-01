@@ -88,7 +88,7 @@ async def on_ready():
 
 @bot.event
 async def on_guild_join(guild):
-    channel = bot.get_channel(log_channel_id[1:-1])
+    channel = bot.get_channel(log_channel_id)
     em = discord.Embed(title="Joined Guild", color=discord.Color.green())
     avatar = bot.user.avatar_url if bot.user.avatar else bot.user.default_avatar_url
     em.set_author(name=guild.name, icon_url=avatar)
@@ -101,7 +101,7 @@ async def on_guild_join(guild):
 
 @bot.event
 async def on_guild_remove(guild):
-    channel = bot.get_channel(log_channel_id[1:-1])
+    channel = bot.get_channel(log_channel_id)
     em = discord.Embed(title="Left Guild", color=discord.Color.red())
     avatar = bot.user.avatar_url if bot.user.avatar else bot.user.default_avatar_url
     em.set_author(name=guild.name, icon_url=avatar)
@@ -114,7 +114,7 @@ async def on_guild_remove(guild):
 @bot.event
 async def on_message(message):
     if isinstance(message.channel, discord.DMChannel):
-        channel = bot.get_channel(log_channel_id[1:-1])
+        channel = bot.get_channel(log_channel_id)
         time = datetime.datetime.now()
         fmt = '[ %H:%M:%S ] %d-%B-%Y'
         author = message.author
