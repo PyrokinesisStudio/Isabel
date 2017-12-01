@@ -67,8 +67,7 @@ class Core:
                 list.extend([f"{file}"])
         await ctx.send(list)
 
-bot = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or(prefix),
-                   description=description)
+bot = commands.AutoShardedBot(command_prefix=prefix,description=description)
 
 @bot.event
 async def on_ready():
