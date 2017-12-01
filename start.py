@@ -95,7 +95,7 @@ async def on_guild_join(guild):
     em.set_thumbnail(url=guild.icon_url)
     em.add_field(name="Total Users", value=len(guild.members))
     em.add_field(name="Guild Owner", value=str(guild.owner))
-    em.add_field(name="Total Guilds", value=len(bot.guildss))
+    em.add_field(name="Total Guilds", value=len(bot.guilds))
     em.set_footer(text="Guild ID: " + guild.id)
     await channel.send(embed=em)
 
