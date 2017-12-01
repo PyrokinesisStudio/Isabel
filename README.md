@@ -1,2 +1,2 @@
-# isabel
+# Isabel
 Isabel Discord Bot
