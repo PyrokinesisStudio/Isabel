@@ -14,9 +14,9 @@ with open("config.json") as conf:
     token = config["token"]
     prefix = config["prefix"]
     description = config["description"]
-    log_channel_id = config["log_channel_id"]
+    log_channel_id = int(config["log_channel_id"])
     playing_status = config["playing_status"]
-    bot_owner_id = config["bot_owner_id"]
+    bot_owner_id = int(config["bot_owner_id"])
 
 class Core:
     def __init__(self, bot):
