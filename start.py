@@ -32,7 +32,7 @@ class Core:
         except Exception as e:
             await ctx.send(f"```\n{e}```")
             return
-        await ctx.send(f"Reloaded module **{name}.py**")
+        await ctx.send(f"Reloaded module **{name}**")
 
     @commands.command(description="Unloads an extension")
     @commands.is_owner()
@@ -44,7 +44,7 @@ class Core:
         except Exception as e:
             await ctx.send(f"```\n{e}```")
             return
-        await ctx.send(f"Unloaded module {name}")
+        await ctx.send(f"Unloaded module **{name}**")
 
     @commands.command(description="loads an extension")
     @commands.is_owner()
@@ -55,7 +55,7 @@ class Core:
         except Exception as e:
             await ctx.send(f"```\n{e}```")
             return
-        await ctx.send(f"Loaded module **{name}.py**")
+        await ctx.send(f"Loaded module **{name}**")
 
     @commands.command(no_pm=True)
     @commands.is_owner()
@@ -64,7 +64,7 @@ class Core:
         module_list = []
         for file in os.listdir("./modules"):
             if file.endswith(".py"):
-                module_list.extend([f"{file}"])
+                module_list.extend([f"{file}"[:-3]])
         await ctx.send("\n".join(module_list))
 
 bot = commands.AutoShardedBot(command_prefix=prefix,description=description)
@@ -81,7 +81,7 @@ async def on_ready():
                 bot.load_extension(f"modules.{name}")
             except:
                 owner = await self.bot.get_user_info(bot_owner_id)
-                await owner.send(f"{name} failed to load! :warning:")
+                await owner.send(f"**{name}** failed to load! :warning:")
     while True:
         await bot.change_presence(game=discord.Game(name=f"{playing_status} | {len(bot.guilds)} Guilds"))
         await asyncio.sleep(600)
