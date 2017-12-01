@@ -113,6 +113,8 @@ async def on_guild_remove(guild):
     
 @bot.event
 async def on_message(message):
+    if message.author == bot.user:
+        return
     if isinstance(message.channel, discord.DMChannel):
         channel = bot.get_channel(log_channel_id)
         time = datetime.datetime.now()
