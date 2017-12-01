@@ -61,11 +61,11 @@ class Core:
     @commands.is_owner()
     async def modules(self, ctx):
         """Modules"""
-        list = []
+        module_list = []
         for file in os.listdir("./modules"):
             if file.endswith(".py"):
-                list.extend([f"{file}"])
-        await ctx.send(list)
+                module_list.extend([f"{file}"])
+        await ctx.send("\n".join(module_list))
 
 bot = commands.AutoShardedBot(command_prefix=prefix,description=description)
 
