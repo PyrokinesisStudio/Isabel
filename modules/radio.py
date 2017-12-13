@@ -2,7 +2,7 @@ from discord.ext import commands
 import discord
 import asyncio
 import sharedstream
-from modules.utils.sharedstream import sharedstream
+import modules.utils.sharedstream as sharedstream
 import aiohttp
 import os
 import psutil
