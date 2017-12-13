@@ -79,7 +79,7 @@ async def on_ready():
             try:
                 bot.load_extension(f"modules.{name}")
             except:
-                owner = await self.bot.get_user_info(bot.owner_id)
+                owner = await bot.get_user_info(bot.owner_id)
                 await owner.send(f"**{name}** failed to load! :warning:")
     while True:
         await bot.change_presence(game=discord.Game(name=f"{playing_status} | {len(bot.guilds)} Guilds"))
