@@ -79,8 +79,8 @@ async def on_ready():
             try:
                 bot.load_extension(f"modules.{name}")
             except:
-                owner = await bot.get_user_info(bot.owner_id)
-                await owner.send(f"**{name}** failed to load! :warning:")
+                channel = channel = bot.get_channel(log_channel_id)
+                await channel.send(f"**{name}** failed to load! :warning:")
     while True:
         await bot.change_presence(game=discord.Game(name=f"{playing_status} | {len(bot.guilds)} Guilds"))
         await asyncio.sleep(600)
