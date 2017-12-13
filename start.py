@@ -16,7 +16,6 @@ with open("config.json") as conf:
     description = config["description"]
     log_channel_id = int(config["log_channel_id"])
     playing_status = config["playing_status"]
-    bot_owner_id = int(config["bot_owner_id"])
 
 class Core:
     def __init__(self, bot):
@@ -80,7 +79,7 @@ async def on_ready():
             try:
                 bot.load_extension(f"modules.{name}")
             except:
-                owner = await self.bot.get_user_info(bot_owner_id)
+                owner = await self.bot.get_user_info(bot.owner_id)
                 await owner.send(f"**{name}** failed to load! :warning:")
     while True:
         await bot.change_presence(game=discord.Game(name=f"{playing_status} | {len(bot.guilds)} Guilds"))
